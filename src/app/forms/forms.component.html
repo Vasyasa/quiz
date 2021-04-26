@@ -1,0 +1,16 @@
+<form action="">
+    <h2>Generate Quiz</h2>
+    <label for="amount">Кількість питань</label>
+    <input type="number" name="amount" (input)="getAmount($event)" min="1" max="50" value="5" >
+    <label for="category"></label>
+        <select *ngFor="let item of cat"  name="category" (input)="getCategory($event)" >
+            <option *ngFor="let trivia_categories of item.trivia_categories" value="{{trivia_categories.id}}">{{trivia_categories.name}}</option>
+        </select>
+    <label for="difficulty"></label>
+    <select name="difficulty" (input)="getDifficulty($event)">
+        <option value="easy">easy</option>
+        <option value="medium">medium</option>
+        <option value="hard">hard</option>
+    </select>
+    <button [routerLink]="['/quiz']" type="button">Generate</button>
+</form>
